@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBDATA</title>
+</head>
+<body>
+    <h1>Topics table data</h1>
+    <table border="0.5">
+        <tr>
+            <th>topic id</th>
+            <th>topic name</th>
+        </tr>
+        {% if topics %}
+            {% for topic in topics %}
+                <tr>
+                    <td>{{topic.id}}</td>
+                    <td>{{topic.top_name}}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+                <tr>
+                    <td>NO data found</td>
+                </tr>
+        {% endif %}
+
+        <h1>webpage table data</h1>
+        <table border="0.5">
+            <tr>
+                <th>topic name</th>
+                <th>webpage name</th>
+                <th>webpage url</th>
+            </tr>
+            {% if webpages %}
+                {% for web in webpages %}
+                    <tr>
+                        <td>{{web.id}}</td>
+                        <td>{{web.topic.top_name}}</td>
+                        <td>{{web.name}}</td>
+                        <td>{{web.url}}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                    <tr>
+                        <td>NO data found</td>
+                    </tr>
+            {% endif %}
+    
+</table>
+    </table>
+</body>
+</html>
